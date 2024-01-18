@@ -4,6 +4,7 @@ const horaMiddleware = (req, res, next) => {
     const minutes = now.getMinutes();
     const formattedTime = `${hour}:${minutes}`;
     req.dateType = formattedTime;
+    req.hour = hour;
     next();
 }
 

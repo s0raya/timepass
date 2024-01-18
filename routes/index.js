@@ -1,8 +1,7 @@
 const express = require('express');
 const indexRouter = express.Router();
-const horaMiddleware = require('../middlewares/horaMiddleware.js');
 
-indexRouter.get('/', horaMiddleware, (req,res) => {
+indexRouter.get('/', (req,res) => {
     const completeTime = req.dateType;
     let mensaje = '';
     if (req.query.mensaje) {
@@ -18,7 +17,7 @@ indexRouter.get('/', horaMiddleware, (req,res) => {
         </head>
         <body>
         <h1>Bienvenido</h1>
-        <div>La hora actual es ${completeTime}</div>
+        <div>La hora actual es ${req.dateType}</div>
         ${mensaje}
         <a href="/endroute"><button>Entrar</button></a>
         </body>
